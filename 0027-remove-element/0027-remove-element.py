@@ -1,6 +1,9 @@
 class Solution:
     def removeElement(self, nums: List[int], val: int) -> int:
-        while val in nums:
-            nums.remove(val)
+        for i in range(len(nums)):
+            while i < len(nums) and nums[i] == val:
+                nums.remove(val)
+            
+                
 
         
