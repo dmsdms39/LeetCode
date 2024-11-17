@@ -1,6 +1,10 @@
 class Solution:
     def convert(self, s: str, numRows: int) -> str:
-        rows = [[] for i in range(numRows)]
+        rows = [''] * (numRows)
+        
+        if numRows == 1:
+            return s
+
         forward = True
         depth = 0
 
@@ -11,9 +15,9 @@ class Solution:
             elif depth == 0 and not forward:
                 forward = True
 
-            dir = 0 if numRows == 1 else (1 if forward else -1)
+            dir = 1 if forward else -1
             
-            rows[depth].append(char)
+            rows[depth] += char
             depth += dir
 
-        return ''.join([''.join(row) for row in rows])
+        return ''.join(rows)
