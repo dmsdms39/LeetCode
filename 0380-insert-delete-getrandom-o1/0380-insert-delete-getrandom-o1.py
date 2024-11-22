@@ -2,17 +2,30 @@ class RandomizedSet:
 
     def __init__(self):
         self.list = []
+        self.map = {}
+
+    def search(self, val):
+        return val in self.map
 
     def insert(self, val: int) -> bool:
-        if val not in self.list:
+        if not self.search(val):
             self.list.append(val)
+            idx = len(self.list) - 1
+            self.map[val] = idx
             return True
+
         return False
         
     def remove(self, val: int) -> bool:
-        if val in self.list:
-            self.list.remove(val)
+        if self.search(val):
+            idx = self.map[val]
+            last = self.list[-1]
+            self.list[idx] = last
+            self.map[last] = idx
+            self.list.pop()
+            del self.map[val]
             return True
+
         return False
 
     def getRandom(self) -> int:
