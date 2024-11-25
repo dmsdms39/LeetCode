@@ -4,19 +4,14 @@ class Solution:
             return 0
 
         minCnt = 1e9
-        l = r = 0
-        sumRslt = nums[0]
+        l, r = 0, 0
+        sumRslt = 0
 
-        while r < len(nums):
-            if sumRslt < target:
-                r += 1
-                if r <= len(nums) - 1:
-                    sumRslt += nums[r]
-            else:
+        for r, val in enumerate(nums):
+            sumRslt += val
+            while sumRslt >= target:
                 minCnt = min(minCnt, r - l + 1)
                 sumRslt -= nums[l]
                 l += 1
-        if minCnt == 1e9:
-            return 0
-
+    
         return minCnt
