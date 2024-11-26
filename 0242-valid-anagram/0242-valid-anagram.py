@@ -5,15 +5,14 @@ class Solution:
         if len(s) != len(t):
             return False
         
-        s_freq = [0] * 26
-        t_freq = [0] * 26
-        
-        for i in range(len(s)):
-            s_freq[ord(s[i]) - ord('a')] += 1
-            t_freq[ord(t[i]) - ord('a')] += 1
+        countS, countT = {}, {}
 
-        if any(s_freq[i] != t_freq[i] for i in range(0, 26)):
-            return False
+        for i in range(len(s)):
+            countS[s[i]] = 1 + countS.get(s[i], 0)
+            countT[t[i]] = 1 + countT.get(t[i], 0)
+        
+        for c in countS:
+            if countS[c] != countT.get(c, 0):
+                return False
         
         return True
-
