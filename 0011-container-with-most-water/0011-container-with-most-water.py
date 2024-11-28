@@ -8,9 +8,9 @@ class Solution:
             currentArea = min(height[l], height[r]) * (r - l)
             maxArea = max(maxArea, currentArea)
 
-            if height[l] <= height[r]:
+            if height[l] < height[r]:
                 l += 1
             else:
                 r -= 1
-                
+
         return maxArea
