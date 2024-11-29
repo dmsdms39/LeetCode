@@ -16,6 +16,5 @@ class Solution:
 
         for i in range(1,len(nodes)):
             answer = min(answer, abs(nodes[i] - nodes[i-1]))
-            if answer == 1 : break
 
         return answer
