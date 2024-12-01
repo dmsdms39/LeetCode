@@ -8,16 +8,14 @@ class Solution:
         if len(Counter(s)) != len(Counter(t)):
             return False
 
-        def modifyStr(target):
-            dic = {}
-            result = ''
+        sDic = {}
+        tDic = {}
 
-            for i in range(len(target)):
-                result += dic.setdefault(target[i], str(i)+'.')
+        for i in range(len(s)):
+            sIdx = sDic.setdefault(s[i], i)
+            tIdx = tDic.setdefault(t[i], i)
 
-            return result
+            if sIdx != tIdx:
+                return False
 
-        s = modifyStr(s)
-        t = modifyStr(t)
-
-        return True if s == t else False
+        return True
