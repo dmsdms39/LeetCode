@@ -5,8 +5,8 @@ class Solution:
         if len(s) != len(t):
             return False
         
-        if len(Counter(s)) != len(Counter(t)):
-            return False
+        # if len(Counter(s)) != len(Counter(t)):
+        #     return False
 
         sDic, tDic = {}, {}
 
