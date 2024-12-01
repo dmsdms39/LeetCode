@@ -8,14 +8,10 @@ class Solution:
         if len(Counter(s)) != len(Counter(t)):
             return False
 
-        sDic = {}
-        tDic = {}
+        sDic, tDic = {}, {}
 
         for i in range(len(s)):
-            sIdx = sDic.setdefault(s[i], i)
-            tIdx = tDic.setdefault(t[i], i)
-
-            if sIdx != tIdx:
+            if sDic.setdefault(s[i], i) != tDic.setdefault(t[i], i):
                 return False
 
         return True
