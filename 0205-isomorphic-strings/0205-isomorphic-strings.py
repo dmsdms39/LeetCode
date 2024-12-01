@@ -19,6 +19,5 @@ class Solution:
 
         s = modifyStr(s)
         t = modifyStr(t)
-        print(s, t)
 
         return True if s == t else False
