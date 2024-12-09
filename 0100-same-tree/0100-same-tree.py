@@ -17,8 +17,10 @@ class Solution:
                 if pNode.val != qNode.val:
                     return False
                 else:
-                    pStack.extend([pNode.left,pNode.right])
-                    qStack.extend([qNode.left,qNode.right])
+                    pStack.append(pNode.left)
+                    pStack.append(pNode.right)
+                    qStack.append(qNode.left)
+                    qStack.append(qNode.right)
                     
             elif not pNode and not qNode:
                 continue
