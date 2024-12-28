@@ -12,4 +12,4 @@ class Solution:
             if ci_sum >= cc:
                 return cc
         
-        return 1
+        return ci_sum if ci_sum > 1 else 1
