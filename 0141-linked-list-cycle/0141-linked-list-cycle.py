@@ -8,9 +8,9 @@ class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
         p = head
         twice_p = head
-        while twice_p and twice_p.next and twice_p.next.next:
+        while twice_p and twice_p.next and twice_p.next.next and twice_p.next.next.next:
             p = p.next
-            twice_p = twice_p.next.next.next
+            twice_p = twice_p.next.next.next.next
             if p == twice_p:
                 return True
         return False
